@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Robots Imitating Generated Videos for Scalable Robotic Manipulation with Zero Robot Demos">
+  <meta name="keywords" content="Robotic Manipulation, Foundation Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotic Manipulation by Imitating Generated Videos with Zero Training Demos</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-fullhd">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Robotic Manipulation by Imitating Generated Videos with Zero Training Demos</h1>
+            <!-- <h2 class="subtitle is-3 conference-name">ICCV 2025</h2>               -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <img src="static/images/teaser.png" class="method-image" />
+  
+        <div class="content has-text-justified">
+          <p>
+            Can robots tackle complex tasks without ever witnessing a physical demonstration? In this work, we test the
+            limits of robotic instruction following with zero robot demonstrations -- no teleoperated trajectories, no
+            expert policy rollouts, and no reliance on pre-collected datasets (e.g., OpenX or Bridge). With Robots
+            Imitating Generated Videos (RIGVid), <i>without a single robot trajectory</i>, we solve challenging tasks
+            like pouring water and sweeping trash that previous methods addressed only through imitation learning from
+            robot demos or online reinforcement learning. Our approach brings together two recent feats in computer
+            vision -- physically plausible video generation and 6-DoF pose estimation -- to overcome the data
+            constraints of robotic manipulation. Starting with an image observation and a free-form command (e.g.,
+            ``pour water''), we leverage state-of-the-art video diffusion models to synthesize a complete demonstration
+            video. We then run general-purpose object tracking on the synthetic video and retarget the resulting
+            trajectory into precise, executable robot motion. The result is a scalable, data-efficient paradigm that
+            outperforms deep generative baselines and paves the way for robots to autonomously acquire complex skills
+            from synthetic visual representations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <section class="hero is-light is-small">
+    </section>
+
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">Robot Imitating Generated Videos (RIGVid)</h2>
+      <div style="text-align: center;">
+        <img src="static/images/framework.png" class="method-image" style="max-width: 80%;" />
+        <img src="static/images/retargeting.png" class="method-image" style="max-width: 80%;" />
+
+      </div>
+      <p class="content has-text-justified">
+        Given a starting image and a free-form human command, RIGVid first generates a video based on the image,
+        following the command. RIGVid then follows a three-step approach: identifying the object of interest, tracking
+        objects in generated videos, and retargeting object trajectories for robot execution. By leveraging video
+        diffusion models trained on large-scale web data, RIGVid generalizes to unseen tasks and environments with no
+        robot-specific pre-taining or offline demonstrations.
+      </p>
+
+    </div>
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">Demonstrations</h2>
+
+      <!-- TODO: descriptions -->
+      <p class="content has-text-justified"></p>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="100%">
+            <source src="static/videos/clean_table_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/drop_coffee_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/pour_ketchup_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/pour_kettle_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/ketchup_upright_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/unplug_charger_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/iron_shirt_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/brush_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/lid_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/mix_pot_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/pouring_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill4" controls autoplay loop muted width="100%">
+            <source src="static/videos/spatula_pipeline_demo.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+    </div>
+
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">Robustness</h2>
+
+      <!-- TODO: descriptions -->
+      <p class="content has-text-justified">A key advantage of RIGVid is its ability to adapt to external disturbances
+        during execution. Using FoundationPose, we track the object's position in real time and dynamically adjust the
+        robot's end-effector trajectory. To detect deviations from the expected trajectory, we compute the object's pose
+        relative to the precomputed motion plan. If the object strays beyond a 2 cm displacement or 20-degree
+        orientation change, we classify it as a disturbance. In response, the end-effector backtracks to the last
+        successfully executed trajectory point before resuming the planned motion.</p>
+
+      <div class="rows">
+        <div class="row has-text-centered"
+          style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+          <!-- First Video: Robust to Human Intervention -->
+          <figure style="width: 45%;">
+            <video id="human1" controls autoplay loop muted width="100%">
+              <source src="static/videos/robustness.mp4" type="video/mp4">
+            </video>
+            <figcaption>The robot detects and recovers
+              from external disturbances, backtracking to the last achieved pose
+              before resuming execution.</figcaption>
+          </figure>
+        </div>
+        <div class="row has-text-centered"
+          style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+          <figure style="width: 45%;">
+            <video id="human1" controls autoplay loop muted width="100%">
+              <source src="static/videos/robustness2.mp4" type="video/mp4">
+            </video>
+            <figcaption>The robot recovers from faulty initial grasp</figcaption>
+          </figure>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <hr class="rounded">
+
+    <div class="rows"></div>
+    <h2 class="title is-3">Results</h2>
+    <div style="text-align: center;">
+      <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
+    </div>
+    <p class="content has-text-justified" style="margin-bottom: 0px;">Comparison of our method with other approaches.
+      The table reports the success over 10 runs. Across different runs, the initial
+      state remains the same, but the generated video can be different, leading to variations in the trajectory. For
+      AVDC and Gen2Act, we replace
+      their original video generation model with the stronger KlingAI v1.6 while keeping all other aspects unchanged.
+      For Track2Act, we get
+      the goal image from the video generated from KlingAI. The Average column represents the sum of successful runs
+      across all tasks.</p>
+  </div>
+
+
+  <!-- TODO: BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content has-text-centered">
+            <p>
+              Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
