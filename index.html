@@ -303,6 +303,22 @@
       Our method beats the performance of ReKep, a method based on vision-language model (VLM). 
     </p>
 
+    <!-- Insight #5 -->
+    <hr class="rounded">
+    <h2 class="title is-3">Insight #5</h2>
+    <h3 class="subtitle is-4">RIGVid Performs Better Than Other Video-Generation for Robotics Methods</h3>
+    <div style="text-align: center;">
+      <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
+    </div>
+    <p class="content has-text-justified" style="margin-bottom: 0px;">Comparison of our method with other approaches.
+      The table reports the success over 10 runs. Across different runs, the initial
+      state remains the same, but the generated video can be different, leading to variations in the trajectory. For
+      AVDC and Gen2Act, we replace
+      their original video generation model with the stronger KlingAI v1.6 while keeping all other aspects unchanged.
+      For Track2Act, we get
+      the goal image from the video generated from KlingAI. The Average column represents the sum of successful runs
+      across all tasks.</p>
+
     <!-- Robustness -->
     <hr class="rounded">
     <div class="rows">
@@ -317,44 +333,62 @@
         successfully executed trajectory point before resuming the planned motion.</p>
 
       <div class="rows">
-        <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <!-- First Row  -->
+        <div class="columns">
+          <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+              <!-- First Video: Robust to Human Intervention -->
+              <figure style="width: 100%;">
+                <video id="human1" controls autoplay loop muted width="100%">
+                  <source src="static/videos/robustness.mp4" type="video/mp4">
+                </video>
+                <figcaption>The robot detects and recovers
+                  from external disturbances, backtracking to the last achieved pose
+                  before resuming execution.</figcaption>
+              </figure>
+          </div>
+          <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+              <figure style="width: 100%;">
+                <video id="human1" controls autoplay loop muted width="100%">
+                  <source src="static/videos/robustness2.mp4" type="video/mp4">
+                </video>
+                <figcaption>The robot recovers from faulty initial grasp</figcaption>
+              </figure>
+          </div>
+        </div>
 
-          <!-- First Video: Robust to Human Intervention -->
-          <figure style="width: 45%;">
-            <video id="human1" controls autoplay loop muted width="100%">
-              <source src="static/videos/robustness.mp4" type="video/mp4">
-            </video>
-            <figcaption>The robot detects and recovers
-              from external disturbances, backtracking to the last achieved pose
-              before resuming execution.</figcaption>
-          </figure>
+        <!-- Second Row  -->
+        <div class="columns">
+          <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+            <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+              <figure style="width: 100%;">
+                <video id="human1" controls autoplay loop muted width="100%">
+                  <source src="static/videos/robustness_slip.mp4" type="video/mp4">
+                </video>
+                <figcaption>The robot recovers when object slips from the grasp</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+            <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+              <figure style="width: 100%;">
+                <video id="human1" controls autoplay loop muted width="100%">
+                  <!-- TODO: Change this video to Visual Disturbance video -->
+                  <source src="static/videos/robustness_slip.mp4" type="video/mp4">
+                </video>
+                <figcaption>The robot is robust against visual disturbance</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
-        <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-          <figure style="width: 45%;">
-            <video id="human1" controls autoplay loop muted width="100%">
-              <source src="static/videos/robustness2.mp4" type="video/mp4">
-            </video>
-            <figcaption>The robot recovers from faulty initial grasp</figcaption>
-          </figure>
-        </div>
+
+
+
+
+
+
 
       </div>
     </div>
-
-    <!-- Results -->
-    <hr class="rounded">
-    <h2 class="title is-3">Results</h2>
-    <div style="text-align: center;">
-      <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
-    </div>
-    <p class="content has-text-justified" style="margin-bottom: 0px;">Comparison of our method with other approaches.
-      The table reports the success over 10 runs. Across different runs, the initial
-      state remains the same, but the generated video can be different, leading to variations in the trajectory. For
-      AVDC and Gen2Act, we replace
-      their original video generation model with the stronger KlingAI v1.6 while keeping all other aspects unchanged.
-      For Track2Act, we get
-      the goal image from the video generated from KlingAI. The Average column represents the sum of successful runs
-      across all tasks.</p>
 
 
     <!-- More Demos -->
