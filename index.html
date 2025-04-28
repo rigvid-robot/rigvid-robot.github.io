@@ -67,8 +67,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark"
-                    target="_blank">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" focusable="false" data-prefix="fas"
                         data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -106,8 +105,7 @@
                 </span>
                 <!-- X Link. -->
                 <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <a href="" class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
                       <svg class="svg-inline--fa fa-x-twitter" aria-hidden="true" focusable="false" data-prefix="fab"
                         data-icon="x-twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -122,8 +120,7 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <svg class="svg-inline--fa fa-github" aria-hidden="true" focusable="false" data-prefix="fab"
                         data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
@@ -150,9 +147,19 @@
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="static/images/teaser.png" class="method-image" />
+        <!-- Teaser Video -->
+        <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+          <figure style="width: 80%; padding-bottom: 10px;">
+            <video id="skill4" controls autoplay loop muted width="100%">
+              <source src="static/videos/teaser_vid.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+
+        <h2 class="title is-3">Abstract</h2>
 
         <div class="content has-text-justified">
+          <!-- Abstract Text -->
           <p>
             Can robots tackle complex tasks without ever witnessing a physical demonstration? In this work, we test the
             limits of robotic instruction following with zero robot demonstrations -- no teleoperated trajectories, no
@@ -172,8 +179,17 @@
       </div>
     </div>
 
-
-
+    <!-- Explanation Video -->
+    <section class="section">
+      <h2 class="title is-3">Explanation Video</h2>
+      <div class="container is-max-desktop">
+        <!--/ Paper video. -->
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4?si=pm1F59o0M9IbJFtg" allow="autoplay; encrypted-media"
+            allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </section>
     <section class="hero is-light is-small">
     </section>
 
@@ -183,8 +199,7 @@
       <h2 class="title is-3">Robot Imitating Generated Videos (RIGVid)</h2>
       <div style="text-align: center;">
         <img src="static/images/framework.png" class="method-image" style="max-width: 80%;" />
-        <img src="static/images/retargeting.png" class="method-image" style="max-width: 80%;" />
-
+        <!-- <img src="static/images/retargeting.png" class="method-image" style="max-width: 80%;" /> -->
       </div>
       <p class="content has-text-justified">
         Given a starting image and a free-form human command, RIGVid first generates a video based on the image,
@@ -369,7 +384,8 @@
         <div class="column">
           <div class="content has-text-centered">
             <p>
-              Send feedback and questions to <a href="https://shivanshpatel35.github.io/">Shivansh Patel</a>. Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>,
+              Send feedback and questions to <a href="https://shivanshpatel35.github.io/">Shivansh Patel</a>. Website
+              template borrowed from <a href="https://nerfies.github.io">Nerfies</a>,
               <a href="https://rekep-robot.github.io">ReKep</a>, and <a href="https://voxposer.github.io/">VoxPoser</a>
             </p>
           </div>
