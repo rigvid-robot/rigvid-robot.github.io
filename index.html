@@ -27,6 +27,7 @@
 </head>
 
 <body>
+  <!-- Title, Authors, Affiliation, Links -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-fullhd">
@@ -143,8 +144,9 @@
     </div>
   </section>
 
-
   <div class="container is-max-widescreen">
+
+    <!-- Teaser Video and Abstract -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <!-- Teaser Video -->
@@ -193,7 +195,7 @@
     <section class="hero is-light is-small">
     </section>
 
-
+    <!-- Method Explanation -->
     <hr class="rounded">
     <div class="rows">
       <h2 class="title is-3">Robot Imitating Generated Videos (RIGVid)</h2>
@@ -211,16 +213,17 @@
 
     </div>
 
+    <!-- Main Demo Videos -->
     <hr class="rounded">
     <div class="rows">
       <h2 class="title is-3">Demonstrations</h2>
       <!-- TODO: descriptions -->
       <p class="content has-text-justified"></p>
-      
+
       <!-- Pour Water Video -->
       <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
         <figure style="width: 100%;">
-          <video id="skill3" controls autoplay loop muted width="100%">
+          <video id="skill3" controls autoplay loop muted width="80%">
             <source src="static/videos/pour_water.mp4" type="video/mp4">
           </video>
         </figure>
@@ -229,7 +232,7 @@
       <!-- Lift Lid Video -->
       <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
         <figure style="width: 100%;">
-          <video id="skill3" controls autoplay loop muted width="100%">
+          <video id="skill3" controls autoplay loop muted width="80%">
             <source src="static/videos/lift_lid.mp4" type="video/mp4">
           </video>
         </figure>
@@ -238,7 +241,7 @@
       <!-- Place Spatula Video -->
       <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
         <figure style="width: 100%;">
-          <video id="skill3" controls autoplay loop muted width="100%">
+          <video id="skill3" controls autoplay loop muted width="80%">
             <source src="static/videos/place_spatula.mp4" type="video/mp4">
           </video>
         </figure>
@@ -247,15 +250,27 @@
       <!-- Sweep Trash Video -->
       <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
         <figure style="width: 100%;">
-          <video id="skill3" controls autoplay loop muted width="100%">
+          <video id="skill3" controls autoplay loop muted width="80%">
             <source src="static/videos/sweep_trash.mp4" type="video/mp4">
           </video>
         </figure>
       </div>
-    
-
     </div>
 
+    <!-- Insight #1 -->
+    <hr class="rounded">
+    <div class="rows"></div>
+    <h2 class="title is-3">Insight #1</h2>
+    <h3 class="subtitle is-4">Better Video Generator Leads to Higher Success Rate</h3>
+    <div style="text-align: center;">
+      <img src="static/images/sora_kling15_kling_16.png" class="method-image" style="max-width: 80%;" />
+    </div>
+    <p class="content has-text-justified" style="margin-bottom: 0px;">We observe that Kling V1.6 generate 
+      higher quality videos that are more aligned with the task prompt compared to SORA and Kling V1.5, 
+      and results in higher success rate.
+    </p>
+
+    <!-- Robustness -->
     <hr class="rounded">
     <div class="rows">
       <h2 class="title is-3">Robustness</h2>
@@ -293,9 +308,8 @@
       </div>
     </div>
 
-
+    <!-- Results -->
     <hr class="rounded">
-
     <div class="rows"></div>
     <h2 class="title is-3">Results</h2>
     <div style="text-align: center;">
@@ -309,8 +323,79 @@
       For Track2Act, we get
       the goal image from the video generated from KlingAI. The Average column represents the sum of successful runs
       across all tasks.</p>
-  </div>
 
+
+    <!-- More Demos -->
+    <hr class="rounded">
+    <div class="rows">
+      <h2 class="title is-3">More Demonstrations</h2>
+      <!-- TODO: descriptions -->
+      <p class="content has-text-justified"></p>
+
+      <!-- Clean Table Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/clean_table.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Iron Shirt Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/iron_shirt.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Ketchup Upright Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/ketchup_upright.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Mix Pot Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/mix_pot.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Pour Ketchup Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/pour_ketchup.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Pour Kettle Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/pour_kettle.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <!-- Unplug Charger Video -->
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 100%;">
+          <video id="skill3" controls autoplay loop muted width="80%">
+            <source src="static/videos/unplug_charger.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+    </div>
+  </div>
 
   <!-- TODO: BibTeX -->
   <section class="section" id="BibTeX">
@@ -318,7 +403,7 @@
     </div>
   </section>
 
-
+  <!-- Footnote -->
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
