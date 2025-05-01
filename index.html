@@ -236,6 +236,7 @@
     </div>
 
     <!-- Explanation Video -->
+    <hr class="rounded">
     <section class="section" id="explanation-video">
       <h2 class="title is-3 has-text-centered">Explanation Video</h2>
       <div class="container is-max-desktop">
@@ -255,14 +256,12 @@
       <h2 class="title is-3 has-text-centered">Robot Imitating Generated Videos (RIGVid)</h2>
       <div style="text-align: center;">
         <img src="static/images/framework.png" class="method-image" style="max-width: 80%;" />
-        <!-- <img src="static/images/retargeting.png" class="method-image" style="max-width: 80%;" /> -->
       </div>
       <p class="content has-text-justified">
-        Given a starting image and a free-form human command, RIGVid first generates a video based on the image,
-        following the command. RIGVid then follows a three-step approach: identifying the object of interest, tracking
-        objects in generated videos, and retargeting object trajectories for robot execution. By leveraging video
-        diffusion models trained on large-scale web data, RIGVid generalizes to unseen tasks and environments with no
-        robot-specific pre-taining or offline demonstrations.
+        RIGVid eliminates the need for physical demonstrations by leveraging video generation and 6D pose tracking.
+        Given RGBD observations and a language command, it generates a video of the task, predicts depth, and tracks the manipulated object's 6D pose over time—termed 6D Pose Rollout. 
+        It is then retargeted to robot for execution. 
+        The approach is embodiment-agnostic, disturbance-robust, and achieves state-of-the-art zero-shot performance. 
       </p>
 
     </div>
@@ -376,72 +375,41 @@
        </section>
      </div>
 
-    <!-- Insight #1 -->
+    
+
     <hr class="rounded">
     <section class="section" id="insights">
       <h2 class="title is-3 has-text-centered">Insights</h2>
-      <h3 class="subtitle is-4 has-text-justified">Insight #1: Better Video Generator Leads to Higher Success Rate</h3>
-      <div style="text-align: center;">
-        <img src="static/images/sora_kling15_kling_16.png" class="method-image" style="max-width: 80%;" />
-      </div>
-      <!-- <p class="content has-text-justified" style="margin-bottom: 0px;">We observe that Kling V1.6 generate
-      higher quality videos that are more aligned with the task prompt compared to SORA and Kling V1.5,
-      and results in higher success rate.
-      </p> -->
 
-      <!-- Insight #2 -->
       <hr class="rounded">
-      <h3 class="subtitle is-4 has-text-justified">Insight #2: Filtering Bad Videos Increases Performance</h3>
-      <div style="text-align: center;">
-        <img src="static/images/unfiltered_vs_filtered.png" class="method-image" style="max-width: 80%;" />
-      </div>
-      <!-- <p class="content has-text-justified" style="margin-bottom: 0px;"> By filtering out bad videos that are geometrically inconsistent, or 
-      don't show completion of the task, we can let the robot immitate only the successful videos, leading to higher success rate.
-      </p> -->
-
-      <!-- Insight #3 -->
-      <hr class="rounded">
-      <h3 class="subtitle is-4 has-text-justified">Insight #3: Immitating Generated Video Matches Performance of
-        Immitating Real Videos</h3>
+      <h3 class="subtitle is-4 has-text-justified"><b>Insight #1: Imitating generated videos is as good as imitating real videos</b></h3>
       <div style="text-align: center;">
         <img src="static/images/real_vs_gen.png" class="method-image" style="max-width: 80%;" />
       </div>
-      <!-- <p class="content has-text-justified" style="margin-bottom: 0px;">
-      We show that the performance of immitating generated videos is comparable to 
-      immitating real human demonstration videos. 
-      </p> -->
 
-      <!-- Insight #4 -->
       <hr class="rounded">
-      <h3 class="subtitle is-4 has-text-justified">Insight #4: RIGVid Outperforms VLM-based Method</h3>
+      <h3 class="subtitle is-4 has-text-justified"><b>Insight #2: RIGVid Outperforms VLM-based Zero-Shot Method</b></h3>
       <div style="text-align: center;">
         <img src="static/images/ours_vs_llm.png" class="method-image" style="max-width: 80%;" />
       </div>
-      <!-- <p class="content has-text-justified" style="margin-bottom: 0px;">
-      Our method beats the performance of ReKep, a method based on vision-language model (VLM). 
-      </p> -->
 
-  
+      <h3 class="subtitle is-4 has-text-justified"><b>Insight #3: Better Video Generator Leads to Higher Success Rate</b></h3>
+      <div style="text-align: center;">
+        <img src="static/images/sora_kling15_kling_16.png" class="method-image" style="max-width: 80%;" />
+      </div>
+
 
     </section>
     <section class="section" id="results">
           <!-- Insight #5 -->
           <hr class="rounded">
           <h3 class="title is-3 has-text-centered">Results</h3>
-          <h3 class="subtitle is-4 has-text-centered">RIGVid Performs Better Than Other Video-Generation for
-            Robotics Methods</h3>
+          <h3 class="subtitle is-4 has-text-centered">RIGVid Outperforms other video-generation for
+            robotics works</h3>
 
           <div style="text-align: center;">
             <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
           </div>
-          <p class="content has-text-justified" style="margin-bottom: 0px;">Comparison of our method with other approaches.
-            The table reports the success over 10 runs. Across different runs, the initial
-            state remains the same, but the generated video can be different, leading to variations in the trajectory. For
-            AVDC and Gen2Act, we replace
-            their original video generation model with the stronger KlingAI v1.6 while keeping all other aspects unchanged.
-            For Track2Act, we get
-            the goal image from the video generated from KlingAI. The average column represents the sum of successful runs
-            across all tasks.</p>
     </section>
 
     <!-- Robustness -->
@@ -450,35 +418,22 @@
       <section class="section" id="robustness">
         <h2 class="title is-3 has-text-centered">Robustness</h2>
 
-        <!-- TODO: descriptions -->
-        <p class="content has-text-justified">A key advantage of RIGVid is its ability to adapt to external disturbances
-          during execution. Using FoundationPose, we track the object's position in real time and dynamically adjust the
-          robot's end-effector trajectory. To detect deviations from the expected trajectory, we compute the object's
-          pose
-          relative to the precomputed motion plan. If the object strays beyond a 2 cm displacement or 20-degree
-          orientation change, we classify it as a disturbance. In response, the end-effector backtracks to the last
-          successfully executed trajectory point before resuming the planned motion.</p>
-
         <div class="rows">
-          <!-- First Row  -->
           <div class="columns">
             <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
-              <!-- First Video: Robust to Human Intervention -->
               <figure style="width: 100%;">
                 <video id="human1" controls autoplay loop muted width="100%">
-                  <source src="static/videos/robustness.mp4" type="video/mp4">
+                  <source src="static/videos/Robustness0_final.mp4" type="video/mp4">
                 </video>
-                <figcaption>The robot detects and recovers
-                  from external disturbances, backtracking to the last achieved pose
-                  before resuming execution.</figcaption>
+                <figcaption>Recovery from external pushes.</figcaption>
               </figure>
             </div>
             <div class="column has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
               <figure style="width: 100%;">
                 <video id="human1" controls autoplay loop muted width="100%">
-                  <source src="static/videos/robustness2.mp4" type="video/mp4">
+                  <source src="static/videos/Robustness1_final.mp4" type="video/mp4">
                 </video>
-                <figcaption>The robot recovers from faulty initial grasp</figcaption>
+                <figcaption>Recovery from faulty initial grasp</figcaption>
               </figure>
             </div>
           </div>
@@ -490,9 +445,9 @@
                 style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                 <figure style="width: 100%;">
                   <video id="human1" controls autoplay loop muted width="100%">
-                    <source src="static/videos/robustness_slip.mp4" type="video/mp4">
+                    <source src="static/videos/Robustness2_final.mp4" type="video/mp4">
                   </video>
-                  <figcaption>The robot recovers when object slips from the grasp</figcaption>
+                  <figcaption>Recovery from grasp slips</figcaption>
                 </figure>
               </div>
             </div>
@@ -501,10 +456,9 @@
                 style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                 <figure style="width: 100%;">
                   <video id="human1" controls autoplay loop muted width="100%">
-                    <!-- TODO: Change this video to Visual Disturbance video -->
-                    <source src="static/videos/robustness_slip.mp4" type="video/mp4">
+                    <source src="static/videos/Robustness3_final.mp4" type="video/mp4">
                   </video>
-                  <figcaption>The robot is robust against visual disturbance</figcaption>
+                  <figcaption>Robustness to visual disturbances</figcaption>
                 </figure>
               </div>
             </div>
