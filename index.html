@@ -51,6 +51,38 @@
       text-align: right;
     }
   </style>
+
+
+  <script>
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      if (task.indexOf("kettle") == -1) {
+        var video = document.getElementById("interactive-video");
+        video.src = "static/interactive/" + 
+                    task + 
+                    ".mp4"
+        video.play();
+
+        var html = document.getElementById("interactive-html-1");
+        html.src = "static/interactive/" + 
+                    task + 
+                    ".html"
+
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "none";
+      } else {
+        var video = document.getElementById("interactive-video");
+        video.src = "static/interactive/kettle.mp4"
+        video.play();
+
+        var html1 = document.getElementById("interactive-html-1");
+        html1.src = "static/interactive/kettle.html"
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -74,6 +106,7 @@
           <a class="navbar-item" href="#demonstrations">Demonstrations</a>
           <a class="navbar-item" href="#insights">Insights</a>
           <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#interactive">Visualizations</a>
           <a class="navbar-item" href="#robustness">Robustness</a>
         </div>
       </div>
@@ -418,6 +451,39 @@
             <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
           </div>
     </section>
+
+    <section class="section" id="interactive">
+      <hr class="rounded">
+      <h2 class="title is-3 has-text-centered">Interactive Visualizations</h2>
+    <div class="columns">
+      <div class="column has-text-centered">
+
+        Visualize Object Trajectory for   
+        <div class="select is-small is-rounded">     
+          <select id="interative-menu" onchange="updateInteractive()">
+          <option value="pour-kettle" selected="selected">Pour from kettle</option>
+          <option value="ketchup">Upright the ketchup bottle</option>
+          <option value="table">Wipe table</option>
+          <option value="coffee">Drop coffee</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    </section>
+
+    <div class="columns">
+      <div class="column is-half has-text-centered">
+        <p style="text-align:center;">
+          <video id="interactive-video" width="100%" height="100%" controls autoplay loop muted>
+            <source src="static/interactive/kettle.mp4" type="video/mp4">
+          </video>
+        </p>
+      </div>
+      <div class="column has-text-centered">
+        <iframe id="interactive-html-1" src="static/interactive/kettle.html" width="100%" height="300" frameborder="0"></iframe>
+      </div>
+    </div>
 
     <!-- Robustness -->
     <hr class="rounded">
