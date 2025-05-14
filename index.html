@@ -94,11 +94,12 @@
 
       <div id="mainNav" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item" href="#abstract">Abstract</a>
+          <!-- <a class="navbar-item" href="#abstract">Abstract</a> -->
           <a class="navbar-item" href="#explanation-video">Explanation Video</a>
           <a class="navbar-item" href="#demonstrations">Demonstrations</a>
-          <a class="navbar-item" href="#insights">Insights</a>
-          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#insights">Insights & Results</a>
+          <!-- <a class="navbar-item" href="#results">Results</a> -->
+          <a class="navbar-item" href="#embodiment-agnostic">Embod-Agnostic & Bimanual Manip</a>
           <a class="navbar-item" href="#interactive">Visualizations</a>
           <a class="navbar-item" href="#robustness">Robustness</a>
         </div>
@@ -126,19 +127,20 @@
                 <a target="_blank" href="https://hanlinmai.web.illinois.edu/">Hanlin Mai</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a target="_blank" href="https://unnat.github.io">Unnat Jain</a><sup>2*</sup>,
+                <a target="_blank" href="https://unnat.github.io">Unnat Jain</a><sup>2,3*</sup>,
               </span>
               <span class="author-block">
                 <a target="_blank" href="https://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a><sup>1*</sup>,
               </span>
               <span class="author-block">
-                <a target="_blank" href="https://yunzhuli.github.io/">Yunzhu Li</a><sup>3*</sup>
+                <a target="_blank" href="https://yunzhuli.github.io/">Yunzhu Li</a><sup>4*</sup>
               </span>
             </div>
             <div class="is-size-5 affiliation">
               <sup>1</sup>University of Illinois at Urbana-Champaign,
               <sup>2</sup>University of California, Irvine,
-              <sup>3</sup>Columbia University
+              <sup>3</sup>Skild AI,
+              <sup>4</sup>Columbia University
             </div>
             <div class="affiliation-note">
               <sup>*</sup> indicates equal advising
@@ -444,6 +446,34 @@
             <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
           </div>
     </section>
+
+    <section class="section" id="embodiment-agnostic">
+      <hr class="rounded">
+      <h3 class="title is-3 has-text-centered">Embodiment-Agnostic & Bimanual Manipulation</h3>
+      
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
+        <figure style="width: 80%;">
+          <video id="skill3" controls autoplay loop muted width="100%">
+            <source src="static/videos/embodiment_agnostic.mp4" type="video/mp4">
+          </video>
+          <figcaption style="text-align: center; font-size: 0.9em;">
+            RIGVid execution on XArm7 and Aloha, showcasing embodiment‑agnostic capabilities.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px; margin-top: 50px;">
+        <figure style="width: 80%;">
+          <video id="skill3" controls autoplay loop muted width="100%">
+            <source src="static/videos/bimanual_manip.mp4" type="video/mp4">
+          </video>
+          <figcaption style="text-align: center; font-size: 0.9em;">
+            RIGVid allows for bimanual manipulation. In this example, it places two shoes simultaneously.
+          </figcaption>
+        </figure>
+      </div>
+
+</section>
 
     <section class="section" id="interactive">
       <hr class="rounded">
