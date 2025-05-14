@@ -94,11 +94,9 @@
 
       <div id="mainNav" class="navbar-menu">
         <div class="navbar-end">
-          <!-- <a class="navbar-item" href="#abstract">Abstract</a> -->
           <a class="navbar-item" href="#explanation-video">Explanation Video</a>
           <a class="navbar-item" href="#demonstrations">Demonstrations</a>
           <a class="navbar-item" href="#insights">Insights & Results</a>
-          <!-- <a class="navbar-item" href="#results">Results</a> -->
           <a class="navbar-item" href="#embodiment-agnostic">Embod-Agnostic & Bimanual Manip</a>
           <a class="navbar-item" href="#interactive">Visualizations</a>
           <a class="navbar-item" href="#robustness">Robustness</a>
@@ -244,19 +242,7 @@
         <div class="content has-text-justified">
           <!-- Abstract Text -->
           <p>
-            Can robots tackle complex tasks without ever witnessing a physical demonstration? In this work, we test the
-            limits of robotic instruction following with zero robot demonstrations -- no teleoperated trajectories, no
-            expert policy rollouts, and no reliance on pre-collected datasets (e.g., OpenX or Bridge). With Robots
-            Imitating Generated Videos (RIGVid), <i>without a single robot trajectory</i>, we solve challenging tasks
-            like pouring water and sweeping trash that previous methods addressed only through imitation learning from
-            robot demos or online reinforcement learning. Our approach brings together two recent feats in computer
-            vision -- physically plausible video generation and 6-DoF pose estimation -- to overcome the data
-            constraints of robotic manipulation. Starting with an image observation and a free-form command (e.g.,
-            ``pour water''), we leverage state-of-the-art video diffusion models to synthesize a complete demonstration
-            video. We then run general-purpose object tracking on the synthetic video and retarget the resulting
-            trajectory into precise, executable robot motion. The result is a scalable, data-efficient paradigm that
-            outperforms deep generative baselines and paves the way for robots to autonomously acquire complex skills
-            from synthetic visual representations.
+            Can robots tackle complex manipulation tasks--like pouring, wiping, and mixing--purely from visual data without requiring any physical demonstrations? Our key insight is that generated videos, when paired with advancements in computer vision, serve as an effective and freely available supervision signal. We present Robots Imitating Generated Videos (RIGVid), a method that achieves robotic manipulation by imitating generated videos. A video diffusion model generates a video conditioned on a language command and an initial scene image, and a pose tracker extracts 6D Object Pose Trajectory from it. This trajectory is then retargeted to the robot in an embodiment-agnostic manner. We also propose an automatic technique to filter out inaccurately generated videos. Through extensive real-world evaluations, we show that filtered generated videos are as effective as real videos for imitation, and that performance scales with video quality. We compare and outperform SOTA VLM‑based open‑world manipulation method, revealing that while VLMs produce compact task abstractions, they lack the rich details required for accurate task execution. We also outperform prior video‑generation for robotics methods. Our results demonstrate that generated videos alone offer a scalable and effective supervision for robotic manipulation
           </p>
         </div>
         </section>
@@ -287,9 +273,9 @@
       </div>
       <p class="content has-text-justified">
         RIGVid eliminates the need for physical demonstrations by leveraging video generation and 6D pose tracking.
-        Given RGBD observations and a language command, it generates a video of the task, predicts depth, and tracks the manipulated object's 6D pose over time—termed 6D Pose Rollout. 
+        Given RGBD observations and a language command, it generates a video of the task, predicts depth, and tracks the manipulated object's 6D pose over time. 
         It is then retargeted to robot for execution. 
-        The approach is embodiment-agnostic, disturbance-robust, and achieves state-of-the-art zero-shot performance. 
+        The approach is embodiment-agnostic, robust to disturbances, and achieves state-of-the-art zero-shot performance. 
       </p>
 
     </div>
