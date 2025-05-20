@@ -59,16 +59,13 @@
       console.log("interactive", task);
 
       var genVideo = document.getElementById("generated-video");
-      var robotVideo = document.getElementById("interactive-video");
       var html1 = document.getElementById("interactive-html-1");
 
       if (task.indexOf("kettle") == -1) {
-        genVideo.src = "static/interactive/" + task + "-gen.mp4";
-        robotVideo.src = "static/interactive/" + task + ".mp4";
+        genVideo.src = "static/interactive/" + task + "-interactive.mp4";
         html1.src = "static/interactive/" + task + ".html";
       } else {
-        genVideo.src = "static/interactive/kettle-gen.mp4";
-        robotVideo.src = "static/interactive/kettle.mp4";
+        genVideo.src = "static/interactive/kettle-interactive.mp4";
         html1.src = "static/interactive/kettle.html";
       }
 
@@ -419,24 +416,15 @@
       </div>
     
       <div class="columns is-multiline is-vcentered is-variable is-1">
-        <!-- Generated Video -->
+        <!-- Generated Video and Robot Execution -->
         <div class="column is-one-third has-text-centered">
           <video id="generated-video" width="100%" height="100%" controls autoplay loop muted>
-            <source src="static/interactive/kettle-gen.mp4" type="video/mp4">
+            <source src="static/interactive/kettle-interactive.mp4" type="video/mp4">
           </video>
-          <p><strong>Generated Video</strong></p>
-        </div>
-    
-        <!-- Robot Execution -->
-        <div class="column is-one-third has-text-centered">
-          <video id="interactive-video" width="100%" height="100%" controls autoplay loop muted>
-            <source src="static/interactive/kettle.mp4" type="video/mp4">
-          </video>
-          <p><strong>Robot Execution</strong></p>
         </div>
     
         <!-- Object Trajectory -->
-        <div class="column is-one-third has-text-centered">
+        <div class="column is-two-third has-text-centered">
           <iframe id="interactive-html-1" src="static/interactive/kettle.html" width="100%" height="250" frameborder="0"></iframe>
           <p><strong>Object Trajectory</strong></p>
         </div>
