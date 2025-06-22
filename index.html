@@ -92,8 +92,8 @@
       <div id="mainNav" class="navbar-menu">
         <div class="navbar-end">
           <a class="navbar-item" href="#explanation-video">Explanation Video</a>
-          <a class="navbar-item" href="#demonstrations">Demonstrations</a>
           <a class="navbar-item" href="#interactive">Visualizations</a>
+          <a class="navbar-item" href="#demonstrations">Demonstrations</a>
           <a class="navbar-item" href="#embodiment-agnostic">Embod-Agnostic & Bimanual Manip</a>
           <a class="navbar-item" href="#robustness">Robustness</a>
           <a class="navbar-item" href="#insights">Insights & Results</a>
@@ -242,7 +242,8 @@
         <div class="content has-text-justified">
           <!-- Abstract Text -->
           <p>
-            Can robots perform complex manipulation tasks—such as pouring, wiping, and mixing—purely by leveraging generative models, without requiring any physical demonstrations? Our key insight is that AI-generated videos, when combined with recent advances in computer vision, can serve as a rich and readily available source of supervision. We introduce Robots Imitating Generated Videos (RIGVid), a framework that enables robots to imitate manipulation behaviors from generated videos. Given a language command and an initial scene image, a video diffusion model generates a corresponding video. A 6D pose tracker then extracts object trajectories from the video, which are retargeted to the robot in an embodiment-agnostic fashion. To ensure quality, we propose an automatic filtering mechanism that discards inaccurately generated videos. Through extensive real-world evaluations, we show that filtered generated videos can be as effective as real demonstrations, and that performance improves with video quality. Our method outperforms state-of-the-art VLM-based open-world manipulation approaches by leveraging the rich, fine-grained visual details captured in generated videos, enabling more accurate and precise task execution. We also achieve stronger results than prior methods that use video generation for robotics. These findings suggest that generated videos alone can offer a scalable and effective source of supervision for robotic manipulation.
+            This work introduces <b>Robots Imitating Generated Videos (RIGVid)</b>, a system that enables robots to perform complex manipulation tasks—such as pouring, wiping, and mixing—purely by <b>imitating AI-generated videos</b>, without requiring any physical demonstrations or robot-specific training. Given a language command and an initial scene image, a <b>video diffusion model generates potential demonstration videos</b>, and a vision-language model (VLM) automatically filters out results that do not follow the command. A 6D pose tracker then extracts object trajectories from the video, and the trajectories are retargeted to the robot in an embodiment-agnostic fashion.
+            Through extensive real-world evaluations, we show that <b>filtered generated videos are as effective as real demonstrations</b>, and that performance improves with generation quality. We also show that <b>relying on generated videos outperforms more compact alternatives such as keypoint prediction using VLMs</b>, and that <b>strong 6D pose tracking outperforms other ways to extract trajectories</b>, such as dense feature point tracking. These findings suggest that videos produced by a state-of-the-art off-the-shelf model can offer an effective source of supervision for robotic manipulation.
           </p>
         </div>
         </section>
@@ -250,7 +251,7 @@
     </div>
 
     <!-- Explanation Video -->
-    <!-- <hr class="rounded">
+    <hr class="rounded">
     <section class="section" id="explanation-video">
       <h2 class="title is-3 has-text-centered">Explanation Video</h2>
       <div class="container is-max-desktop">
@@ -261,7 +262,7 @@
       </div>
     </section>
     <section class="hero is-light is-small">
-    </section> -->
+    </section>
 
     <!-- Method Explanation -->
     <hr class="rounded">
@@ -278,6 +279,40 @@
       </p>
 
     </div>
+
+    <section class="section" id="interactive">
+      <hr class="rounded">
+      <h2 class="title is-3 has-text-centered">Interactive Visualizations</h2>
+      
+      <div class="columns">
+        <div class="column has-text-centered">
+          Visualize Object Trajectory for
+          <div class="select is-small is-rounded">
+            <select id="interative-menu" onchange="updateInteractive()">
+              <option value="pour-kettle" selected="selected">Pour from kettle</option>
+              <option value="ketchup">Upright the ketchup bottle</option>
+              <option value="table">Wipe table</option>
+              <option value="coffee">Drop coffee</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <div class="columns is-multiline is-vcentered is-variable is-1">
+        <!-- Generated Video and Robot Execution -->
+        <div class="column is-one-half has-text-centered">
+          <video id="generated-video" width="100%" height="100%" controls autoplay loop muted>
+            <source src="static/interactive/kettle-interactive.mp4" type="video/mp4">
+          </video>
+        </div>
+    
+        <!-- Object Trajectory -->
+        <div class="column is-one-half has-text-centered">
+          <iframe id="interactive-html-1" src="static/interactive/kettle.html" width="100%" height="250" frameborder="0"></iframe>
+          <p><strong>Object Trajectory</strong></p>
+        </div>
+      </div>
+    </section>
 
      <!-- More Demos -->
      <hr class="rounded">
@@ -397,70 +432,60 @@
        </section>
      </div>
 
-    
-
-    
-    <section class="section" id="interactive">
-      <hr class="rounded">
-      <h2 class="title is-3 has-text-centered">Interactive Visualizations</h2>
-      
-      <div class="columns">
-        <div class="column has-text-centered">
-          Visualize Object Trajectory for
-          <div class="select is-small is-rounded">
-            <select id="interative-menu" onchange="updateInteractive()">
-              <option value="pour-kettle" selected="selected">Pour from kettle</option>
-              <option value="ketchup">Upright the ketchup bottle</option>
-              <option value="table">Wipe table</option>
-              <option value="coffee">Drop coffee</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    
-      <div class="columns is-multiline is-vcentered is-variable is-1">
-        <!-- Generated Video and Robot Execution -->
-        <div class="column is-one-half has-text-centered">
-          <video id="generated-video" width="100%" height="100%" controls autoplay loop muted>
-            <source src="static/interactive/kettle-interactive.mp4" type="video/mp4">
-          </video>
-        </div>
-    
-        <!-- Object Trajectory -->
-        <div class="column is-one-half has-text-centered">
-          <iframe id="interactive-html-1" src="static/interactive/kettle.html" width="100%" height="250" frameborder="0"></iframe>
-          <p><strong>Object Trajectory</strong></p>
-        </div>
-      </div>
-    </section>
-
 
 
 
     <section class="section" id="embodiment-agnostic">
-      <hr class="rounded">
-      <h3 class="title is-3 has-text-centered">Embodiment-Agnostic & Bimanual Manipulation</h3>
+  <hr class="rounded">
+  <h3 class="title is-3 has-text-centered">Embodiment-Agnostic & Bimanual Manipulation</h3>
 
-      <div class="row has-text-centered" style="display: flex; justify-content: center; gap: 20px;">
-        <figure style="width: 48%;">
+  <div class="container">
+    <div class="columns is-multiline is-variable is-4" style="margin-top: 2rem;">
+      <!-- Row 1: Embodiment-Agnostic -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <figcaption style="font-size: 0.9em; margin-top: 0.5rem;">Generated video</figcaption>
+          <video controls autoplay loop muted width="100%">
+            <source src="static/videos/embodiment_agnostic_gen.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="column is-half has-text-centered">
+        <figure>
+          <figcaption style="font-size: 0.9em; margin-top: 0.5rem;">Robot execution</figcaption>
           <video controls autoplay loop muted width="100%">
             <source src="static/videos/embodiment_agnostic.mp4" type="video/mp4">
           </video>
-          <figcaption style="text-align: center; font-size: 0.9em;">
-            RIGVid execution on XArm7 and Aloha, showcasing embodiment‑agnostic capabilities.
-          </figcaption>
         </figure>
+      </div>
+      <div class="column is-full has-text-centered" style="margin-top: -1rem;margin-bottom: 1rem;">
+        <p style="font-size: 1.1em;">RIGVid execution on XArm7 and Aloha, showcasing embodiment‑agnostic capabilities.</p>
+      </div>
 
-        <figure style="width: 48%;">
+      <!-- Row 2: Bimanual Manipulation -->
+      <div class="column is-half has-text-centered">
+        <figure>
+          <figcaption style="font-size: 0.9em; margin-top: 0.5rem;">Generated video</figcaption>
+          <video controls autoplay loop muted width="100%">
+            <source src="static/videos/bimanual_manip_gen.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+      <div class="column is-half has-text-centered">
+        <figure>
+          <figcaption style="font-size: 0.9em; margin-top: 0.5rem;">Robot execution</figcaption>
           <video controls autoplay loop muted width="100%">
             <source src="static/videos/bimanual_manip.mp4" type="video/mp4">
           </video>
-          <figcaption style="text-align: center; font-size: 0.9em;">
-            RIGVid allows for bimanual manipulation. In this example, it places two shoes simultaneously.
-          </figcaption>
         </figure>
       </div>
-    </section>
+      <div class="column is-full has-text-centered" style="margin-top: -1rem;">
+        <p style="font-size: 1.1em;">RIGVid allows for bimanual manipulation. In this example, it places two shoes simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Robustness -->
@@ -536,7 +561,7 @@
 
       <h3 class="subtitle is-4 has-text-justified" style="margin-top: 3rem;"><b>Insight #3: Better video generator leads to higher success rate</b></h3>
       <div style="text-align: center;">
-        <img src="static/images/sora_kling15_kling_16.png" class="method-image" style="max-width: 80%;" />
+        <img src="static/images/sora_kling15_kling16.png" class="method-image" style="max-width: 80%;" />
       </div>
 
 
@@ -549,7 +574,7 @@
             robotics works</h3>
 
           <div style="text-align: center;">
-            <img src="static/images/main_result.png" class="method-image" style="max-width: 100%;" />
+            <img src="static/images/main_result_slanted.png" class="method-image" style="max-width: 100%;" />
           </div>
     </section>
 
