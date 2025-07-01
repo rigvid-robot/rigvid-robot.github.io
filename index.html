@@ -50,6 +50,37 @@
     .rows {
       text-align: right;
     }
+
+    @media (max-width: 600px) {
+      .publication-title {
+        font-size: 2rem !important; /* Decrease title size */
+      }
+      .publication-authors,
+      .affiliation {
+        font-size: 1rem !important; /* Increase author/affiliation size */
+      }
+      .content.has-text-justified {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      #insights,
+      #results {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      #insights .method-image,
+      #results .method-image {
+        max-width: 100% !important; /* This is crucial to override inline styles */
+        width: 100%;
+      }
+      #insights div[style*="text-align: center"],
+      #results div[style*="text-align: center"] {
+        text-align: left !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+      }
+    }
   </style>
 
 
@@ -131,8 +162,8 @@
               </span>
             </div>
             <div class="is-size-5 affiliation">
-              <sup>1</sup>University of Illinois at Urbana-Champaign,
-              <sup>2</sup>University of California, Irvine,
+              <sup>1</sup>UIUC,
+              <sup>2</sup>UC, Irvine,
               <sup>3</sup>Skild AI,
               <sup>4</sup>Columbia University
             </div>
